@@ -11,9 +11,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Books\Commands\" />
-    <Folder Include="Books\Events\" />
-    <Folder Include="Books\Queries\" />
+    <Folder Include="Books\Commands\DeleteBook\" />
+    <Folder Include="Books\Commands\UpdateBook\" />
+    <Folder Include="Books\Events\BookCreated\" />
+    <Folder Include="Books\Events\BookUpdated\" />
+    <Folder Include="Books\Events\BookDeleted\" />
+    <Folder Include="Books\Queries\GetAll\" />
+    <Folder Include="Books\Queries\GetById\" />
+    <Folder Include="Books\Queries\GetByTitle\" />
     <Folder Include="Porns\Commands\" />
     <Folder Include="Porns\Events\" />
     <Folder Include="Porns\Queries\" />

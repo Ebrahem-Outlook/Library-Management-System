@@ -14,6 +14,7 @@
     <Folder Include="Books\ValueObjects\" />
     <Folder Include="Patrons\Events\" />
     <Folder Include="Patrons\ValueObjects\" />
+    <Folder Include="Users\ValueObjects\" />
   </ItemGroup>
 
 </Project>
