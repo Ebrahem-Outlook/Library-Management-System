@@ -7,6 +7,7 @@ namespace Library.Application.Core.Abstractions.CQRS;
 /// </summary>
 /// <typeparam name="TResponse"></typeparam>
 public interface IQuery<out TResponse> : IRequest<TResponse>
+    where TResponse : class
 {
 
 }

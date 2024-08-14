@@ -7,21 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Books\Commands\DeleteBook\**" />
-    <Compile Remove="Books\Commands\UpdateBook\**" />
-    <Compile Remove="Books\Events\**" />
-    <Compile Remove="Books\Queries\**" />
-    <EmbeddedResource Remove="Books\Commands\DeleteBook\**" />
-    <EmbeddedResource Remove="Books\Commands\UpdateBook\**" />
-    <EmbeddedResource Remove="Books\Events\**" />
-    <EmbeddedResource Remove="Books\Queries\**" />
-    <None Remove="Books\Commands\DeleteBook\**" />
-    <None Remove="Books\Commands\UpdateBook\**" />
-    <None Remove="Books\Events\**" />
-    <None Remove="Books\Queries\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Library.Domain\Library.Domain.csproj" />
   </ItemGroup>
 
