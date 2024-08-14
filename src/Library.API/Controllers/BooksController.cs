@@ -11,13 +11,13 @@ using Microsoft.AspNetCore.Mvc;
 namespace Library.API.Controllers;
 
 [Authorize]
-[Route("api/[Controller]")]
 [ApiController]
-[ApiVersion("V1")]
+[Route("api/v/{version:apiVersion}/[Controller]")]    
+[ApiVersion("1.0.0")]
 public sealed class BooksController(ISender sender) : ControllerBase
 {
     [HttpPost]
-    public async Task<IActionResult> Create(CreateBookRequest request) =>
+    public async Task<IActionResult> Create([FromBody] CreateBookRequest request) =>
         Ok(await sender.Send(
             new CreateBookCommand(
                 request.Title, 
@@ -29,7 +29,7 @@ public sealed class BooksController(ISender sender) : ControllerBase
                 request.PublicationYear)));
 
     [HttpPut]
-    public async Task<IActionResult> Update(UpdateBookRequest request) =>
+    public async Task<IActionResult> Update([FromBody] UpdateBookRequest request) =>
         Ok(await sender.Send(
             new UpdateBookRequest(
                 request.BookId,
@@ -41,14 +41,14 @@ public sealed class BooksController(ISender sender) : ControllerBase
                 request.Language,
                 request.PublicationYear)));
 
-    [HttpDelete]
-    public async Task<IActionResult> Delete(Guid BookId) => Ok(await sender.Send(new DeleteBookRequest(BookId)));
+    [HttpDelete("id:{bookId}")]
+    public async Task<IActionResult> Delete(Guid bookId) => Ok(await sender.Send(new DeleteBookRequest(bookId)));
 
     [HttpGet]
     public async Task<IActionResult> GetAll() => Ok(await sender.Send(new GetAllBooksQuery()));
 
-    [HttpGet("id:{id}")]
-    public async Task<IActionResult> GetById(Guid id) => Ok(await sender.Send(new GetByIdQuery(id)));
+    [HttpGet("id:{bookId}")]
+    public async Task<IActionResult> GetById(Guid bookId) => Ok(await sender.Send(new GetByIdQuery(bookId)));
 
     [HttpGet("title:{title}")]
     public async Task<IActionResult> GetByTitle(string title) => Ok(await sender.Send(new GetByTitleQuery(title)));
