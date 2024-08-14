@@ -3,9 +3,9 @@ using System.Reflection;
 
 namespace Library.Infrastructure.Database;
 
-public sealed class LibararyDbContext : DbContext
+public sealed class LibraryDbContext : DbContext
 {
-    public LibararyDbContext(DbContextOptions<LibararyDbContext> options) : base(options) { }
+    public LibraryDbContext(DbContextOptions<LibraryDbContext> options) : base(options) { }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
