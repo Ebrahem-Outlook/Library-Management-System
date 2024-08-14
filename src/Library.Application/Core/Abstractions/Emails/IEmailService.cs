@@ -8,9 +8,9 @@ public interface IEmailService
     /// <summary>
     /// 
     /// </summary>
-    /// <param name="from"></param>
-    /// <param name="to"></param>
+    /// <param name="emailTo"></param>
+    /// <param name="subject"></param>
     /// <param name="body"></param>
     /// <returns></returns>
-    Task SendEmail(string from, string to, string body);
+    Task SendEmail(string emailTo, string subject, string body);
 }

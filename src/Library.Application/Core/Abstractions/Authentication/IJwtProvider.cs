@@ -1,4 +1,6 @@
-﻿namespace Library.Application.Core.Abstractions.Authentication;
+﻿using Library.Domain.Users;
+
+namespace Library.Application.Core.Abstractions.Authentication;
 
 /// <summary>
 /// 
@@ -8,5 +10,5 @@ public interface IJwtProvider
     /// <summary>
     /// 
     /// </summary>
-    string GenerateToken { get; }
+    string GenerateToken(User user);
 }

@@ -1,6 +1,6 @@
 ﻿namespace Library.Application.Core.Abstractions.Authentication;
 
-public interface IUserIdentityProvider
+public interface IUserIdentifierProvider
 {
-    Guid Id { get; }
+    Guid UserId { get; }
 }

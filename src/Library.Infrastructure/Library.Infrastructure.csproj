@@ -7,15 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Authentication\**" />
     <Compile Remove="Caching\**" />
-    <Compile Remove="Emails\**" />
-    <EmbeddedResource Remove="Authentication\**" />
     <EmbeddedResource Remove="Caching\**" />
-    <EmbeddedResource Remove="Emails\**" />
-    <None Remove="Authentication\**" />
     <None Remove="Caching\**" />
-    <None Remove="Emails\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,6 +17,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.8" />
     <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="8.0.8" />
+    <PackageReference Include="MimeKit" Version="4.7.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.4" />
   </ItemGroup>
