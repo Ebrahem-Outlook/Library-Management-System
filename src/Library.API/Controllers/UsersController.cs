@@ -13,8 +13,7 @@ namespace Library.API.Controllers;
 
 [Authorize]
 [ApiController]
-[Route("api/v/{version:apiVersion}/[Controller]")]
-[ApiVersion("1.0.0")]
+[Route("api/1.0.0/[Controller]")]
 public class UsersController(ISender sender) : ControllerBase
 {
     [HttpPut]
