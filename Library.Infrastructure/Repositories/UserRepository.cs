@@ -35,8 +35,7 @@ namespace Library.Infrastructure.Repositories
         /// Updates an existing <see cref="User"/> entity in the database.
         /// </summary>
         /// <param name="user">The <see cref="User"/> entity to update.</param>
-        /// <param name="cancellationToken">A <see cref="CancellationToken"/> to monitor for cancellation requests.</param>
-        public void Update(User user, CancellationToken cancellationToken)
+        public void Update(User user)
         {
             dbContext.Set<User>().Update(user);
         }
@@ -45,8 +44,7 @@ namespace Library.Infrastructure.Repositories
         /// Deletes a <see cref="User"/> entity from the database.
         /// </summary>
         /// <param name="user">The <see cref="User"/> entity to delete.</param>
-        /// <param name="cancellationToken">A <see cref="CancellationToken"/> to monitor for cancellation requests.</param>
-        public void Delete(User user, CancellationToken cancellationToken)
+        public void Delete(User user)
         {
             dbContext.Set<User>().Remove(user);
         }

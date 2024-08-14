@@ -1,37 +1,48 @@
 ﻿using Library.Application.Core.Abstractions.Data;
 using Library.Domain.Books;
+using Microsoft.EntityFrameworkCore;
 
 namespace Library.Infrastructure.Repositories;
 
 internal sealed class BookRepository(IDbContext dbContext) : IBookRepository
 {
-    public Task AddAsync(Book book, CancellationToken cancellationToken)
+    public async Task AddAsync(Book book, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        await dbContext.Set<Book>().AddAsync(book, cancellationToken);
     }
 
-    public Task DeleteAsync(Book book, CancellationToken cancellationToken)
+    public void Update(Book book)
     {
-        throw new NotImplementedException();
+        dbContext.Set<Book>().Update(book);
     }
 
-    public Task<IEnumerable<Book>> GetByAuthorAsync(string author, CancellationToken cancellationToken)
+
+    public void Delete(Book book)
     {
-        throw new NotImplementedException();
+        dbContext.Set<Book>().Remove(book);
     }
 
-    public Task<Book> GetByIdAsync(Guid id, CancellationToken cancellationToken)
+
+    public async Task<IEnumerable<Book>> GetByAuthorAsync(string author, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        return await dbContext.Set<Book>()
+                              .AsNoTracking()
+                              .Where(book => book.Author.Contains(author, StringComparison.OrdinalIgnoreCase))
+                              .Take(5)
+                              .ToListAsync(cancellationToken);
     }
 
-    public Task<Book> GetByTitleAsync(string title, CancellationToken cancellationToken)
+    public async Task<Book?> GetByIdAsync(Guid id, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        return await dbContext.Set<Book>()
+                              .AsNoTracking()
+                              .SingleOrDefaultAsync(book => book.Id == id, cancellationToken);
     }
 
-    public Task UpdateAsync(Book book, CancellationToken cancellationToken)
+    public async Task<Book?> GetByTitleAsync(string title, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
-    }
+        return await dbContext.Set<Book>()
+                              .AsNoTracking()
+                              .FirstOrDefaultAsync(book => book.Title.Contains(title, StringComparison.OrdinalIgnoreCase));
+    } 
 }

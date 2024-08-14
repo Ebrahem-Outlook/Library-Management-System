@@ -101,6 +101,8 @@ namespace Library.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Email");
+
                     b.ToTable("User", "User_Schema_1");
                 });
 #pragma warning restore 612, 618

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Library.Infrastructure.Migrations
 {
     [DbContext(typeof(LibraryDbContext))]
-    [Migration("20240814090135_InitialCreate_3")]
-    partial class InitialCreate_3
+    [Migration("20240814103535_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -103,6 +103,8 @@ namespace Library.Infrastructure.Migrations
                         .HasColumnName("PasswordHash");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Email");
 
                     b.ToTable("User", "User_Schema_1");
                 });
