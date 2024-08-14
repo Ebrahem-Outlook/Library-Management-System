@@ -4,8 +4,8 @@ public sealed record CreateBookRequest(
     string Title, 
     string Author, 
     string Publisher, 
-    string PageCount, 
+    int PageCount, 
     string Summary, 
     string Language, 
-    string PublicationYear);
+    DateTime PublicationYear);
 

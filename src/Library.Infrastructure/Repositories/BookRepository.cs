@@ -49,6 +49,15 @@ namespace Library.Infrastructure.Repositories
             dbContext.Set<Book>().Remove(book);
         }
 
+
+        public async Task<IEnumerable<Book>> GetAllAsync(CancellationToken cancellationToken)
+        {
+            return await dbContext.Set<Book>()
+                                  .AsNoTracking()
+                                  .Take(10)
+                                  .ToListAsync(cancellationToken);
+        }
+
         /// <summary>
         /// Asynchronously retrieves a collection of <see cref="Book"/> entities by author name.
         /// </summary>

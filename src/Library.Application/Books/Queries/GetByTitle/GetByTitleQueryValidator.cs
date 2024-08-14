@@ -2,9 +2,9 @@
 
 namespace Library.Application.Books.Queries.GetByTitle;
 
-internal sealed class GetByTitleCommandValidator : AbstractValidator<GetByTitleCommand>
+internal sealed class GetByTitleQueryValidator : AbstractValidator<GetByTitleQuery>
 {
-    public GetByTitleCommandValidator()
+    public GetByTitleQueryValidator()
     {
         RuleFor(book => book.Title).NotNull().NotEmpty().WithMessage("Title can't be null or empty.");
     }

@@ -3,4 +3,4 @@ using Library.Domain.Books;
 
 namespace Library.Application.Books.Queries.GetByTitle;
 
-public sealed record GetByTitleCommand(string Title) : IQuery<Book>;
+public sealed record GetByTitleQuery(string Title) : IQuery<Book>;

@@ -3,9 +3,9 @@ using Library.Domain.Books;
 
 namespace Library.Application.Books.Queries.GetByTitle;
 
-internal sealed class GetByTitleCommandHandler : IQueryHandler<GetByTitleCommand, Book>
+internal sealed class GetByTitleQueryHandler : IQueryHandler<GetByTitleQuery, Book>
 {
-    public Task<Book> Handle(GetByTitleCommand request, CancellationToken cancellationToken)
+    public Task<Book> Handle(GetByTitleQuery request, CancellationToken cancellationToken)
     {
         throw new NotImplementedException();
     }
