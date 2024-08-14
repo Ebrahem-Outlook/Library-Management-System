@@ -4,8 +4,8 @@ public interface IBookRepository
 {
     // Commands.
     Task AddAsync(Book book, CancellationToken cancellationToken);
-    Task UpdateAsync(Book book, CancellationToken cancellationToken);
-    Task DeleteAsync(Book book, CancellationToken cancellationToken);
+    void Update(Book book, CancellationToken cancellationToken);
+    void Delete(Book book, CancellationToken cancellationToken);
 
     // Queries.
     Task<Book> GetByIdAsync(Guid id, CancellationToken cancellationToken);

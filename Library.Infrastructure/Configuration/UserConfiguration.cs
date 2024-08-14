@@ -32,11 +32,17 @@ internal sealed class UserConfiguration : IEntityTypeConfiguration<User>
                .HasMaxLength(100)
                .IsRequired();
 
+        // Configuration Email Index.
+        builder.HasIndex(user => user.Email);
+
         // Configuration Password.
         builder.Property(user => user.PasswordHash)
                .HasColumnName(nameof(User.PasswordHash))
                .HasMaxLength(255)
                .IsRequired();
+
+        // Configuration DomainEvents.
+        builder.Ignore(user => user.DomainEvents);
     }
 }
 
