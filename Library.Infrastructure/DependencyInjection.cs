@@ -1,4 +1,8 @@
-﻿using Library.Infrastructure.Database;
+﻿using Library.Application.Core.Abstractions.Data;
+using Library.Domain.Books;
+using Library.Domain.Users;
+using Library.Infrastructure.Database;
+using Library.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,7 +20,16 @@ public static class DependencyInjection
             options.UseSqlServer(ConnectionString);
         });
 
+        services.AddScoped<IDbContext>(serviceProvider => serviceProvider.GetRequiredService<LibraryDbContext>());
 
+        services.AddScoped<IUnitOfWork>(serviceProvider => serviceProvider.GetRequiredService<LibraryDbContext>());
+
+
+        
+
+        services.AddScoped<IUserRepository, UserRepository>();
+
+        services.AddScoped<IBookRepository, BookRepository>();
 
         return services;
     }
