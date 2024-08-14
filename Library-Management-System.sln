@@ -7,21 +7,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A9CC0C42-836
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{674A9780-FCC5-42B0-BB1D-234D1409ABA3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "src/Library.Domain", "Library.Domain\Library.Domain.csproj", "{E3EF92D4-6AAB-4CF2-A135-C17DDB0D5180}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Domain", "src/Library.Domain\Library.Domain.csproj", "{E3EF92D4-6AAB-4CF2-A135-C17DDB0D5180}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "src/Library.Application", "Library.Application\Library.Application.csproj", "{AF98F740-2445-469C-8662-2A4EE345AACE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Application", "src/Library.Application\Library.Application.csproj", "{AF98F740-2445-469C-8662-2A4EE345AACE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "src/Library.Infrastructure", "Library.Infrastructure\Library.Infrastructure.csproj", "{663085C4-9CA8-41EA-B258-0F6918062990}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Infrastructure", "src/Library.Infrastructure\Library.Infrastructure.csproj", "{663085C4-9CA8-41EA-B258-0F6918062990}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "src/Library.API", "Library.API\Library.API.csproj", "{884E776F-7DBA-4C87-8EB9-F6BC42454E63}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.API", "src/Library.API\Library.API.csproj", "{884E776F-7DBA-4C87-8EB9-F6BC42454E63}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test/Library.Application.Test", "Library.Application.Test\Library.Application.Test.csproj", "{2332B5AD-9E22-4514-93B5-DECBD3E4DB19}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Application.Test", "test/Library.Application.Test\Library.Application.Test.csproj", "{2332B5AD-9E22-4514-93B5-DECBD3E4DB19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test/Library.Infrastructure.Test", "Library.Infrastructure.Test\Library.Infrastructure.Test.csproj", "{1DB8EC6C-D032-4C1A-8C6D-4AC50FD1AFD3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Infrastructure.Test", "test/Library.Infrastructure.Test\Library.Infrastructure.Test.csproj", "{1DB8EC6C-D032-4C1A-8C6D-4AC50FD1AFD3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test/Library.Domain.Test", "Library.Domain.Test\Library.Domain.Test.csproj", "{6354FD26-36D3-41D6-A528-CACEA179E2A0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Domain.Test", "test/Library.Domain.Test\Library.Domain.Test.csproj", "{6354FD26-36D3-41D6-A528-CACEA179E2A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test/Library.API.Test", "Library.API.Test\Library.API.Test.csproj", "{851579D8-0097-4E46-9241-EF2892B6D896}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.API.Test", "test/Library.API.Test\Library.API.Test.csproj", "{851579D8-0097-4E46-9241-EF2892B6D896}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{9B9DC1E9-9CD8-45B8-BDA2-A3B0A9731481}"
 EndProject
