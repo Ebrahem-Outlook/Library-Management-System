@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Library.API.Contracts.Auth;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Library.API.Controllers;

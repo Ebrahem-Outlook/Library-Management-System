@@ -13,9 +13,5 @@ public class UsersController(ISender sender) : ControllerBase
 {
     [HttpPut]
     public async Task<IActionResult> UpdateUser([FromBody] UpdateUserRequest request) =>
-        Ok(await sender(
-            new UpdateUserCommand(
-                request.UserId, 
-                request.FirstName, 
-                request.LastName)));
+        Ok();
 }

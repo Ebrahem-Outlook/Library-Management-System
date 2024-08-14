@@ -6,6 +6,6 @@ internal sealed class CreateBookCommandValidator : AbstractValidator<CreateBookC
 {
     public CreateBookCommandValidator()
     {
-        RuleFor(book => book.title)
+        RuleFor(book => book.Title);
     }
 }
