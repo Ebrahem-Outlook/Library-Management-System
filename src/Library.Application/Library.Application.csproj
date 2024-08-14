@@ -7,9 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Users\**" />
-    <EmbeddedResource Remove="Users\**" />
-    <None Remove="Users\**" />
+    <Compile Remove="Books\Commands\DeleteBook\**" />
+    <Compile Remove="Books\Commands\UpdateBook\**" />
+    <Compile Remove="Books\Events\**" />
+    <Compile Remove="Books\Queries\**" />
+    <EmbeddedResource Remove="Books\Commands\DeleteBook\**" />
+    <EmbeddedResource Remove="Books\Commands\UpdateBook\**" />
+    <EmbeddedResource Remove="Books\Events\**" />
+    <EmbeddedResource Remove="Books\Queries\**" />
+    <None Remove="Books\Commands\DeleteBook\**" />
+    <None Remove="Books\Commands\UpdateBook\**" />
+    <None Remove="Books\Events\**" />
+    <None Remove="Books\Queries\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -17,14 +26,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Books\Commands\DeleteBook\" />
-    <Folder Include="Books\Commands\UpdateBook\" />
-    <Folder Include="Books\Events\BookCreated\" />
-    <Folder Include="Books\Events\BookUpdated\" />
-    <Folder Include="Books\Events\BookDeleted\" />
-    <Folder Include="Books\Queries\GetAll\" />
-    <Folder Include="Books\Queries\GetById\" />
-    <Folder Include="Books\Queries\GetByTitle\" />
+    <Folder Include="Users\Commands\UpdatePassword\" />
+    <Folder Include="Users\Commands\UpdateEmail\" />
+    <Folder Include="Users\Commands\UpdateUser\" />
+    <Folder Include="Users\Events\EmailUpdated\" />
+    <Folder Include="Users\Events\PasswordUpdated\" />
+    <Folder Include="Users\Events\UserUpdated\" />
+    <Folder Include="Users\Queries\GetById\" />
+    <Folder Include="Users\Queries\GetByName\" />
   </ItemGroup>
 
   <ItemGroup>
