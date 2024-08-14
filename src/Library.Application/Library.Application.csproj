@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Users\**" />
+    <EmbeddedResource Remove="Users\**" />
+    <None Remove="Users\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Library.Domain\Library.Domain.csproj" />
   </ItemGroup>
 
@@ -19,15 +25,6 @@
     <Folder Include="Books\Queries\GetAll\" />
     <Folder Include="Books\Queries\GetById\" />
     <Folder Include="Books\Queries\GetByTitle\" />
-    <Folder Include="Users\Commands\UpdatePassword\" />
-    <Folder Include="Users\Commands\UpdateEmail\" />
-    <Folder Include="Users\Commands\UpdateUser\" />
-    <Folder Include="Users\Events\EmailUpdated\" />
-    <Folder Include="Users\Events\PasswordUpdated\" />
-    <Folder Include="Users\Events\UserUpdated\" />
-    <Folder Include="Users\Queries\GetById\" />
-    <Folder Include="Users\Queries\GetByName\" />
-    <Folder Include="Users\Queries\GetByEmail\" />
   </ItemGroup>
 
   <ItemGroup>
