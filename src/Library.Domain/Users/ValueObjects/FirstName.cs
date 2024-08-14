@@ -4,5 +4,8 @@ namespace Library.Domain.Users.ValueObjects;
 
 public sealed class FirstName : ValueObject
 {
-
+    protected override IEnumerable<object> GetEqualityComponents()
+    {
+        throw new NotImplementedException();
+    }
 }

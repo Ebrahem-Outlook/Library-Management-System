@@ -3,7 +3,7 @@ using Library.Domain.Core.BaseType.Results;
 
 namespace Library.Application.Authentication.Register;
 
-internal sealed class RegisterCommandHandler : ICommandHandler<RegisterCommand, Result<string>>
+internal sealed class RegisterCommandHandler : ICommandHandler<RegisterCommand>
 {
     public Task<Result> Handle(RegisterCommand request, CancellationToken cancellationToken)
     {
