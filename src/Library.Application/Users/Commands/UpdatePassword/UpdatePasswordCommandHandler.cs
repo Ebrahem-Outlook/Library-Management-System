@@ -1,5 +1,6 @@
 ﻿using Library.Application.Core.Abstractions.CQRS;
 using Library.Domain.Core.BaseType.Results;
+using MediatR;
 
 namespace Library.Application.Users.Commands.UpdatePassword;
 
@@ -9,4 +10,6 @@ internal sealed class UpdatePasswordCommandHandler : ICommandHandler<UpdatePassw
     {
         throw new NotImplementedException();
     }
+
+    
 }

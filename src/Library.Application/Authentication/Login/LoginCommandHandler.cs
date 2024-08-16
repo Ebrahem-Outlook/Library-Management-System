@@ -7,17 +7,8 @@ namespace Library.Application.Authentication.Login;
 
 internal sealed class LoginCommandHandler : ICommandHandler<LoginCommand>
 {
-    private readonly IUserRepository userRepository;
-    private readonly IJwtProvider _jwtProvider;
-
-    public LoginCommandHandler(IUserRepository userRepository, IJwtProvider jwtProvider)
+    public Task<Result> Handle(LoginCommand request, CancellationToken cancellationToken)
     {
-        this.userRepository = userRepository;
-        _jwtProvider = jwtProvider;
-    }
-
-    public Task Handle(LoginCommand request, CancellationToken cancellationToken)
-    {
-        string email = 
+        throw new NotImplementedException();
     }
 }

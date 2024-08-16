@@ -13,11 +13,6 @@ public sealed class FirstName : ValueObject
 
     public static implicit operator string(FirstName firstName) => firstName.Value;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="firstName"></param>
-    /// <returns></returns>
     public static Result<FirstName> Create(string firstName) =>
         Result.Create(firstName, Error.None)
               .Ensure(f => !string.IsNullOrEmpty(f), Error.None)

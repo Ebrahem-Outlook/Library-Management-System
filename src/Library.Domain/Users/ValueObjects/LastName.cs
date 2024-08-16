@@ -9,13 +9,18 @@ public sealed class LastName : ValueObject
 
     private LastName(string value) => Value = value;
 
-    public static LastName Creat(string lastName) => 
-        Result.Create(lastName,  )
-
     public string Value { get; }
+
+    public static Result<LastName> Create(string lastName) =>
+        Result.Create(lastName, Error.None)
+              .Ensure(l => !string.IsNullOrEmpty(l), Error.None)
+              .Ensure(l => l.Length > MaxLength, Error.None)
+              .Map(l => new LastName(l));
+
+    public override string ToString() => Value;
 
     protected override IEnumerable<object> GetAtomicValues()
     {
-        throw new NotImplementedException();
+        yield return Value;
     }
 }

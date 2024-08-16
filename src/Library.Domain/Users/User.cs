@@ -1,29 +1,31 @@
 ﻿using Library.Domain.Core.Abstractions;
 using Library.Domain.Core.BaseType;
 using Library.Domain.Users.Events;
+using Library.Domain.Users.ValueObjects;
 
 namespace Library.Domain.Users
 {
     public  class User : AggregateRoot , IAuditableEntity, ISoftDeletableEntity
     {
-        private User(string firstName, string lastName, string email, string passwordHash)
+        private User(FirstName firstName, LastName lastName, Email email, Password passwordHash)
             : base(Guid.NewGuid())
         {
             FirstName = firstName;
             LastName = lastName;
             Email = email;
             PasswordHash = passwordHash;
+            CreatedOnUtc = DateTime.UtcNow;
         }
       
         private User() : base() { }
    
-        public string FirstName { get; private set; } = default!;
+        public FirstName FirstName { get; private set; } = default!;
 
-        public string LastName { get; private set; } = default!;
+        public LastName LastName { get; private set; } = default!;
 
-        public string Email { get; private set; } = default!;
+        public Email Email { get; private set; } = default!;
 
-        public string PasswordHash { get; private set; } = default!;
+        public Password PasswordHash { get; private set; } = default!;
 
         public DateTime CreatedOnUtc { get; }
 
@@ -33,7 +35,7 @@ namespace Library.Domain.Users
 
         public bool Deleted { get; private set; }
 
-        public static User Create(string firstName, string lastName, string email, string passwordHash)
+        public static User Create(FirstName firstName, LastName lastName, Email email, Password passwordHash)
         {
             User user = new User(firstName, lastName, email, passwordHash);
 
@@ -42,24 +44,27 @@ namespace Library.Domain.Users
             return user;
         }
 
-        public void UpdateUser(string firstName, string lastName)
+        public void UpdateUser(FirstName firstName, LastName lastName)
         {
             FirstName = firstName;
             LastName = lastName;
+            ModifiedOnUtc = DateTime.UtcNow;
 
             RaiseDomainEvent(new UserUpdatedDomainEvent(this));
         }
 
-        public void UpdateEmail(string email)
+        public void UpdateEmail(Email email)
         {
             Email = email;
+            ModifiedOnUtc = DateTime.UtcNow;
 
             RaiseDomainEvent(new UserEmailUpdatedDomainEvent(this));
         }
 
-        public void UpdatePassword(string passwordHash)
+        public void UpdatePassword(Password passwordHash)
         {
             PasswordHash = passwordHash;
+            ModifiedOnUtc = DateTime.UtcNow;
 
             RaiseDomainEvent(new UserPasswordUpdatedDomainEvent(this));
         }

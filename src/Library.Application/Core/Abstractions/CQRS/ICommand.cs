@@ -6,7 +6,7 @@ namespace Library.Application.Core.Abstractions.CQRS;
 /// <summary>
 /// 
 /// </summary>
-public interface ICommand : IRequest
+public interface ICommand : IRequest<Result>
 {
 
 }

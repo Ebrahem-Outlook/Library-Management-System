@@ -59,7 +59,7 @@ namespace Library.Infrastructure.Repositories
         {
             return await dbContext.Set<User>()
                                   .AsNoTracking()
-                                  .SingleOrDefaultAsync(user => user.Email == email, cancellationToken);
+                                  .SingleOrDefaultAsync(user => user.Email.Value == email, cancellationToken);
         }
 
         /// <summary>
@@ -86,7 +86,7 @@ namespace Library.Infrastructure.Repositories
         {
             return await dbContext.Set<User>()
                                   .AsNoTracking()
-                                  .Where(user => user.FirstName.Contains(name, StringComparison.OrdinalIgnoreCase))
+                                  .Where(user => user.FirstName.Value.Contains(name, StringComparison.OrdinalIgnoreCase))
                                   .OrderBy(user => user.FirstName)
                                   .Skip((pageNumber - 1) * 10)
                                   .Take(10)

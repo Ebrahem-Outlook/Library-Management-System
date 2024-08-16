@@ -7,7 +7,7 @@ namespace Library.Application.Core.Abstractions.CQRS;
 /// 
 /// </summary>
 /// <typeparam name="TCommand"></typeparam>
-public interface ICommandHandler<in TCommand> : IRequestHandler<TCommand>
+public interface ICommandHandler<in TCommand> : IRequestHandler<TCommand, Result>
     where TCommand : ICommand
 {
 
