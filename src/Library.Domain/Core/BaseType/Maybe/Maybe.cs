@@ -6,7 +6,7 @@
 /// <typeparam name="T">The value type.</typeparam>
 public sealed class Maybe<T> : IEquatable<Maybe<T>>
 {
-    private readonly T _value;
+    private readonly T? _value;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Maybe{T}"/> class.
@@ -34,7 +34,7 @@ public sealed class Maybe<T> : IEquatable<Maybe<T>>
     /// <summary>
     /// Gets the default empty instance.
     /// </summary>
-    public static Maybe<T> None => new Maybe<T>(default);
+    public static Maybe<T> None => new Maybe<T>(default!);
 
     /// <summary>
     /// Creates a new <see cref="Maybe{T}"/> instance based on the specified value.
@@ -48,7 +48,7 @@ public sealed class Maybe<T> : IEquatable<Maybe<T>>
     public static implicit operator T(Maybe<T> maybe) => maybe.Value;
 
     /// <inheritdoc />
-    public bool Equals(Maybe<T> other)
+    public bool Equals(Maybe<T>? other)
     {
         if (other is null)
         {

@@ -21,5 +21,5 @@ public sealed class Error : ValueObject
         yield return Message;
     }
 
-    internal static Error None => new Error(string.Empty, string.Empty);
+    public static Error None => new Error(string.Empty, string.Empty);
 }

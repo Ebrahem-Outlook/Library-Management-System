@@ -6,7 +6,7 @@ namespace Library.Application.Core.Abstractions.CQRS;
 /// <summary>
 /// 
 /// </summary>
-public interface ICommand : IRequest<Result>
+public interface ICommand : IRequest
 {
 
 }
@@ -16,7 +16,7 @@ public interface ICommand : IRequest<Result>
 /// </summary>
 /// <typeparam name="TResponse"></typeparam>
 public interface ICommand<out TResponse> : IRequest<TResponse>
-    where TResponse : Result<TResponse>
+    where TResponse : class
 {
 
 }
