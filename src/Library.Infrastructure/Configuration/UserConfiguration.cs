@@ -1,52 +1,66 @@
 ﻿using Library.Domain.Users;
+using Library.Domain.Users.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Library.Infrastructure.Configuration
 {
-    /// <summary>
-    /// Configures the <see cref="User"/> entity for the database.
-    /// </summary>
     internal sealed class UserConfiguration : IEntityTypeConfiguration<User>
     {
-        /// <summary>
-        /// Configures the <see cref="User"/> entity using the provided <see cref="EntityTypeBuilder{User}"/>.
-        /// </summary>
-        /// <param name="builder">The builder to be used to configure the <see cref="User"/> entity.</param>
+
         public void Configure(EntityTypeBuilder<User> builder)
         {
-            // Configure the table name and schema.
+    
             builder.ToTable("User", "User_Schema_1");
 
-            // Configure the primary key.
+
             builder.HasKey(user => user.Id);
 
-            // Configure the FirstName property.
-            builder.Property(user => user.FirstName)
-                   .HasColumnName(nameof(User.FirstName))
-                   .HasMaxLength(50)
-                   .IsRequired();
+            // Configure FirstName.
+            builder.OwnsOne(user => user.FirstName, firstNameBuilder =>
+            {
+                firstNameBuilder.WithOwner();
 
-            // Configure the LastName property.
-            builder.Property(user => user.LastName)
-                   .HasColumnName(nameof(User.LastName))
-                   .HasMaxLength(50)
-                   .IsRequired();
+                firstNameBuilder.Property(firstName => firstName.Value)
+                                .HasColumnName(nameof(User.FirstName))
+                                .HasMaxLength(FirstName.MaxLength)
+                                .IsRequired();
+            });
 
-            // Configure the Email property.
-            builder.Property(user => user.Email)
-                   .HasColumnName(nameof(User.Email))
-                   .HasMaxLength(100)
-                   .IsRequired();
+            // Configure LastName.
+            builder.OwnsOne(lastName => lastName.LastName, lastNameBuilder =>
+            {
+                lastNameBuilder.WithOwner();
 
-            // Configure an index on the Email property.
-            builder.HasIndex(user => user.Email);
+                lastNameBuilder.Property(lastName => lastName.Value)
+                               .HasColumnName(nameof(User.LastName))
+                               .HasMaxLength(LastName.MaxLength)
+                               .IsRequired();
+            });
 
-            // Configure the PasswordHash property.
-            builder.Property(user => user.PasswordHash)
-                   .HasColumnName(nameof(User.PasswordHash))
-                   .HasMaxLength(255)
-                   .IsRequired();
+            // Configure Email.
+            builder.OwnsOne(email => email.Email, emailBuilder =>
+            {
+                emailBuilder.WithOwner();
+
+                // builder.HasIndex(user => user.Email);
+
+                emailBuilder.Property(email => email.Value)
+                            .HasColumnName(nameof(User.Email))
+                            .HasMaxLength(Email.MaxLength)
+                            .IsRequired();
+            });
+
+            // Configure Password.
+            builder.OwnsOne(user => user.PasswordHash, passwordHashBuilder =>
+            {
+                passwordHashBuilder.WithOwner();
+
+                passwordHashBuilder.Property(password => password.Value)
+                                   .HasColumnName(nameof(User.PasswordHash))
+                                   .HasMaxLength(Password.MaxLength)
+                                   .IsRequired();
+            });
 
             // Ignore the DomainEvents property.
             builder.Ignore(user => user.DomainEvents);

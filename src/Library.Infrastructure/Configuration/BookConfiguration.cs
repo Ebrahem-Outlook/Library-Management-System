@@ -1,4 +1,5 @@
 ﻿using Library.Domain.Books;
+using Library.Domain.Books.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -12,30 +13,56 @@ namespace Library.Infrastructure.Configuration
 
             builder.HasKey(book => book.Id);
 
-            builder.Property(book => book.Title)
-                   .HasColumnName("Title")
-                   .HasMaxLength(100)
-                   .IsRequired();
+            // Configure Title.
+            builder.OwnsOne(book => book.Title, bookBuilder =>
+            {
+                bookBuilder.WithOwner();
 
-            builder.Property(book => book.Author)
-                   .HasColumnName("Author")
-                   .HasMaxLength(100)
-                   .IsRequired();
+                bookBuilder.Property(book => book.Value)
+                           .HasColumnName(nameof(Book.Title))
+                           .HasMaxLength(Title.MaxLength)
+                           .IsRequired();
+            });
 
-            builder.Property(book => book.Publisher)
-                   .HasColumnName("Publisher")
-                   .HasMaxLength(100)
-                   .IsRequired();
+            // Configure Author.
+            builder.OwnsOne(book => book.Author, bookBuilder =>
+            {
+                bookBuilder.WithOwner();
 
+                bookBuilder.Property(book => book.Value)
+                           .HasColumnName(nameof(Book.Author))
+                           .HasMaxLength(Author.MaxLength)
+                           .IsRequired();
+            });
+
+            // Configure Summary.
+            builder.OwnsOne(book => book.Summary, bookBuilder =>
+            {
+                bookBuilder.WithOwner();
+
+                bookBuilder.Property(book => book.Value)
+                           .HasColumnName(nameof(Book.Summary))
+                           .HasMaxLength(Summary.MaxLength)
+                           .IsRequired();
+            });
+
+            // Configure PageCount.
             builder.Property(book => book.PageCount)
-                   .HasColumnName("PageCount")
+                   .HasColumnName(nameof(Book.PageCount))
                    .IsRequired();
 
-            builder.Property(book => book.Summary)
-                   .HasColumnName("Summary")
-                   .HasMaxLength(2000)
-                   .IsRequired();
+            // Configure Publisher.
+            builder.OwnsOne(book => book.Publisher, bookBuilder =>
+            {
+                bookBuilder.WithOwner();
 
+                bookBuilder.Property(book => book.Value)
+                           .HasColumnName(nameof(Book.Publisher))
+                           .HasMaxLength(Publisher.MaxLength)
+                           .IsRequired();
+            });
+
+            // Configure Publication Year.
             builder.Property(book => book.PublicationYear)
                    .HasColumnName("PublicationYear")
                    .IsRequired();

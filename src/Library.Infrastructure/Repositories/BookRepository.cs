@@ -4,9 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Library.Infrastructure.Repositories
 {
-    /// <summary>
-    /// Provides methods to interact with the Book entities in the database.
-    /// </summary>
+    
     internal sealed class BookRepository : IBookRepository
     {
         private readonly IDbContext dbContext;

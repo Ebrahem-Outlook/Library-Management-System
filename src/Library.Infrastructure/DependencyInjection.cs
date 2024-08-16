@@ -40,7 +40,6 @@ public static class DependencyInjection
         // Register Book Service..
         services.AddScoped<IBookRepository, BookRepository>();
 
-
         // Register JWT Provider...
         services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options => options.TokenValidationParameters = new TokenValidationParameters
@@ -60,15 +59,10 @@ public static class DependencyInjection
 
         services.AddScoped<IJwtProvider, JwtProvider>();
 
-
         // Register Email Service...
         services.Configure<MailSettings>(configuration.GetSection(MailSettings.SettingsKey));
 
         services.AddScoped<IEmailService, EmailService>();
-        
-
-
-        
 
         return services;
     }
